@@ -1,0 +1,70 @@
+.confirm-button {
+    background-color: #2AC0A5;
+    width: 300px;
+    max-width: 100%; /* Makes sure the button doesn't overflow on smaller screens */
+}
+
+.navbar-brand-container {
+    margin-left: 20px;
+}
+
+.content-box {
+    padding: 20px;
+}
+
+.green-box {
+    background-color: #30e7c6;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 95%;
+    max-height: 200px; 
+    overflow: hidden; 
+    margin-left: 10%;
+}
+
+.green-box p {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: left;
+}
+
+.custom-link {
+    color: #27a891;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .content-box {
+        padding: 10px;
+    }
+
+    .green-box {
+        padding: 10px;
+        max-height: 150px; 
+    }
+
+    .green-box p {
+        font-size: 1.2em;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+}
+.custom-progress-bar {
+    background-color: #0DC7B1; 
+  }
+  .green-line {
+    border: none;
+    background-color:#0DC7B1;
+    height: 4px; /* Adjust the height as needed for thickness */
+    width: 20%; /* Adjust the width as needed for length */
+    margin: 0 auto; /* Center the line horizontally */
+  }
+h2{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+  

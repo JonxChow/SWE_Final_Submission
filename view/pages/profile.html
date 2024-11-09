@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Fixaroo</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/index.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 80px; /* To prevent content from hiding behind fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1e2a38; /* Dark Blue */
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ffb123 !important; /* Accent Color */
+        }
+
+        /* Logo Styling */
+        #logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1e2a38;
+            padding: 20px 0;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        /* Profile Page Styles */
+        .profile-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ffb123;
+            margin-bottom: 20px;
+        }
+
+        .password-toggle {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(20%);
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: #ffb123; /* Accent Color on Hover */
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+            }
+
+            .profile-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="../../images/header.png" alt="Logo" id="logo">
+                Fixaroo
+            </a>
+            <!-- Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa-solid fa-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus">
+                            <i class="fa-solid fa-circle-info"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services">
+                            <i class="fa-solid fa-tools"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="historyBtnClickHandler(event)">
+                            <i class="fa-solid fa-clock"></i> Order History
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">
+                            <i class="fa-solid fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="nav-link disabled" >|</span> <!-- Divider -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile">
+                            <i class="fa-solid fa-user"></i> Profile
+                        </a>
+                    </li>
+                    <li id="authButton">
+                        <a href="login" class="btn btn-outline-success service-btn"><b>Login</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="profile-container">
+                    <div class="text-center">
+                        <img src="../../images/default_profile.png" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                        <h3 id="userName">User Name</h3>
+                        <p id="userEmail">user@example.com</p>
+                        <p id="userUsername">@username</p>
+                        <button class="btn btn-outline-primary" id="uploadPictureBtn"><i class="fa-solid fa-upload"></i> Upload New Picture</button>
+                        <input type="file" id="profilePictureInput" accept="image/*" style="display: none;">
+                    </div>
+                    <hr>
+                    <!-- Change Password Form -->
+                    <div class="mt-4">
+                        <h4>Change Password</h4>
+                        <form id="changePasswordForm">
+                            <div class="mb-3 position-relative">
+                                <label for="currentPassword" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" required>
+                                <button type="button" class="password-toggle" id="toggleCurrentPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" required>
+                                <button type="button" class="password-toggle" id="toggleNewPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmNewPassword" required>
+                                <button type="button" class="password-toggle" id="toggleConfirmNewPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h5>Fixaroo</h5>
+            <p>We Fix, You Relax!</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <!-- jQuery (Optional, if needed for other scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-/xUj+3OJ+Y8oe1sANzXITs4X1JujZATlDJW3LrZG4Cs=" 
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS (for icons, if needed) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- AOS JS (if used) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialize AOS (if used) -->
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+        });
+    </script>
+
+    <script>
+        // Redirect to login page if not logged in
+        function historyBtnClickHandler(event) {
+            if (!localStorage.getItem("loggedIn")) {
+                event.preventDefault();
+                window.location.href = "/login";
+            } else {
+                window.location.href = "/history";
+            }
+        }
+    </script>
+    <!-- Custom JS -->
+    <script src="/profile.js" type="module"></script>
+</body>
+</html>

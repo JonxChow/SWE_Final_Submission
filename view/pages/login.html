@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fixaroo</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 80px; /* To prevent content from hiding behind fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1e2a38; /* Dark Blue */
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ffb123 !important; /* Accent Color */
+        }
+
+        /* Logo Styling */
+        #logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1e2a38;
+            padding: 20px 0;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        /* Login/Register Form Styles */
+        .tab-content {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-pills .nav-link {
+            background-color: #1e2a38;
+            color: #ffffff;
+            border-radius: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #ffb123;
+            color: #1e2a38;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: #ffb123; /* Retain background color on hover */
+            color: #1e2a38 !important; /* Ensures text color remains visible */
+        }
+
+        .password-toggle {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: #ffb123; /* Accent Color on Hover */
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="../../images/header.png" alt="Logo" id="logo">
+                Fixaroo
+            </a>
+            <!-- Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa-solid fa-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus">
+                            <i class="fa-solid fa-circle-info"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services">
+                            <i class="fa-solid fa-tools"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="historyBtnClickHandler(event)">
+                            <i class="fa-solid fa-clock"></i> Order History
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">
+                            <i class="fa-solid fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="nav-link disabled" >|</span> <!-- Divider -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile">
+                            <i class="fa-solid fa-user"></i> Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- Pills navs -->
+                <ul class="nav nav-pills mb-3 justify-content-center" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link show active" id="tab-login" data-bs-toggle="pill" href="#pills-login" role="tab"
+                           aria-controls="pills-login" aria-selected="true">Login</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-register" data-bs-toggle="pill" href="#pills-register" role="tab"
+                           aria-controls="pills-register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+                <!-- Pills navs -->
+
+                <div class="tab-content">
+                    <!-- Login Tab -->
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                        <div class="mb-4 text-center">
+                            <h2 class="text-dark"><b>Your Trusted Fixer</b></h2>
+                            <h2 class="text-dark"><b>Right At Your Doorstep.</b></h2>
+                            <h3 class="text-dark"><b>Anytime. Anywhere.</b></h3>
+                        </div>
+
+                        <form>
+                            <div class="mb-3 text-center">
+                                <button type="button" class="btn btn-outline-primary btn-floating mx-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-outline-danger btn-floating mx-1">
+                                    <i class="fab fa-google"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-outline-info btn-floating mx-1">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-outline-dark btn-floating mx-1">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        
+                            <!-- Username input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="loginName" class="form-control" placeholder="Username" />
+                            </div>
+                    
+                            <!-- Password input -->
+                            <div class="form-outline mb-4 position-relative">
+                                <input type="password" id="loginPassword" class="form-control" placeholder="Password" />
+                                <button type="button" class="password-toggle" id="toggleLoginPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                
+                            <!-- Remember me and Forgot password -->
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                        <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <a href="#!">Forgot password?</a>
+                                </div>
+                            </div>
+                    
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-3 w-100" id="signInBtn">Sign in</button>                     
+                        </form>
+                    </div>
+
+                    <!-- Register Tab -->
+                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                        <div class="mb-4 text-center">
+                            <h4 class="text-dark"><b>Sign up now!</b></h4>
+                        </div>
+                
+                        <form>
+                            <!-- Name input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="registerName" class="form-control" placeholder="Name" />
+                            </div>
+                    
+                            <!-- Username input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="registerUsername" class="form-control" placeholder="Username" />
+                            </div>
+                    
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="registerEmail" class="form-control" placeholder="Email" />
+                            </div>
+                    
+                            <!-- Password input -->
+                            <div class="form-outline mb-4 position-relative">
+                                <input type="password" id="registerPassword" class="form-control" placeholder="Password" />
+                                <button type="button" class="password-toggle" id="toggleRegisterPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+    
+                            <!-- Repeat Password input -->
+                            <div class="form-outline mb-4 position-relative">
+                                <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Repeat Password" />
+                                <button type="button" class="password-toggle" id="toggleRegisterConfirmPassword" aria-label="Show password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                
+                            <!-- Terms and Conditions -->
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="registerCheck" checked
+                                       aria-describedby="registerCheckHelpText" />
+                                <label class="form-check-label" for="registerCheck">
+                                    I have read and agree to the terms
+                                </label>
+                            </div>
+                
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-3 w-100" id="signUpBtn">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div class="col-md-4 d-none d-md-block">
+                <img src="../../images/login.png" alt="Login Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h5>Fixaroo</h5>
+            <p>We Fix, You Relax!</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <!-- jQuery (Optional, if needed for other scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-/xUj+3OJ+Y8oe1sANzXITs4X1JujZATlDJW3LrZG4Cs=" 
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS (for icons, if needed) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- AOS JS (if used) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (if used)
+        AOS.init({
+            duration: 1200,
+            once: true,
+        });
+
+        // Redirect to login page if not logged in
+        function historyBtnClickHandler(event) {
+            if (!localStorage.getItem("loggedIn")) {
+                event.preventDefault();
+                window.location.href = "/login";
+            } else {
+                window.location.href = "/history";
+            }
+        }
+    </script>
+    <!-- Custom JS -->
+    <script src="/login.js" type="module"></script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="R9tDMkphUJ3gGwnaCXbgc" domain="www.chatbase.co" defer></script>
+
+</body>
+</html>

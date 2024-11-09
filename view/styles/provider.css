@@ -1,0 +1,36 @@
+.card-like {
+    width: 100%;  /* Takes up the full width of its container */
+    height: auto;  /* Adjusts height dynamically */
+    box-shadow: 0px 20px 50px rgba(29, 117, 101, 0.30);
+    padding: 20px;
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+.accept-req{
+    margin-left: 250px;
+}
+  
+h1 {
+    font-weight: bold; /* Makes the text bolder */
+    margin-bottom: 20px; /* Adds a 20px gap below the h1 */
+  }
+.image-upload-container{
+    width:  700px;
+    /* height */
+    
+}
+.green-line {
+  border: none;
+  background-color:#0DC7B1;
+  height: 4px; /* Adjust the height as needed for thickness */
+  width: 20%; /* Adjust the width as needed for length */
+  margin: 0 auto; /* Center the line horizontally */
+}
+h2{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+

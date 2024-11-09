@@ -1,0 +1,147 @@
+.card-like {
+  width: 100%;  /* Takes up the full width of its container */
+  height: auto;  /* Adjusts height dynamically */
+  box-shadow: 0px 20px 50px rgba(29, 117, 101, 0.30);
+  padding: 40px;
+  border-radius: 15px;
+  margin-left: 50px ;
+  
+}
+h2{
+  font-family: 'Poppins', sans-serif;
+}
+.line {
+  padding: 500px;
+  border-bottom: 1px solid #3DDABE;
+}
+/* Media query to adjust the height for smaller screens */
+@media (max-width: 768px) {
+  .card-like {
+    height: auto;  /* Adjusts height dynamically for smaller screens */
+  }
+}
+
+h1 {
+  font-weight: bold; /* Makes the text bolder */
+  margin-bottom: 20px; /* Adds a 20px gap below the h1 */
+}
+
+.btn-group-vertical{
+  color: #2AC0A5;
+}
+.btn-group-vertical{
+  user-select: none;
+}
+  
+.upload-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    color: #2AC0A5;
+    border: 2px solid #2AC0A5;
+    border-radius: 92px;
+  }
+
+.upload-button:hover {
+    background-color: #006400;
+    color: #f8f9fa;
+}
+
+.timing-button {
+    color: #2AC0A5;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.timing-button:hover {
+  background-color: #006400;
+  color: #f8f9fa;
+}
+  
+.image-preview {
+    background-color: rgb(172, 165, 165); /* Gray background when no image is uploaded */
+    width: 100%;  /* You can set a fixed width */
+    height: 200px;  /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;  /* Enable scrolling */
+}
+
+.image-preview img {
+  max-width: 100%;  /* Max width is the width of the container */
+  height: auto;  /* Maintain the aspect ratio */
+}
+  
+.selected-timing {
+  background-color: #1E8F7D;
+  color: #f8f9fa;
+  border: 2px solid #2AC0A5;
+}
+
+  #upload-title {
+    width: 420px;
+    height: 127px;
+    flex-shrink: 0;
+    color: #333; 
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 63.48px; 
+    text-transform: uppercase;
+}
+
+.loading-popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid transparent;
+  border-top-color: #2AC0A5;  /* Same as your navbar color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.custom-progress-bar {
+  background-color: #0DC7B1; /* Replace #ff5733 with your desired color code */
+}
+.green-line {
+  border: none;
+  background-color:#0DC7B1;
+  height: 4px; /* Adjust the height as needed for thickness */
+  width: 20%; /* Adjust the width as needed for length */
+  margin: 0 auto; /* Center the line horizontally */
+}
+#uploadButton{
+  font-family: 'Poppins', sans-serif;
+}
+
+#submitButton{
+  font-family: 'Poppins', sans-serif;
+  background-color: #0DC7B1;
+}

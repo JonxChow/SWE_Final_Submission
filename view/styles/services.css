@@ -1,0 +1,200 @@
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    background-color: transparent;
+}
+
+.navbar {
+    background-color: #1e2a38;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffb123 !important;
+}
+
+#logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1e2a38;
+}
+
+.green-line {
+    background-color: #ffb123;
+    height: 4px;
+    width: 20%;
+    margin: 0 auto;
+    border: none;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #106cfc;
+    padding: 10px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.service-btn {
+    color: #106cfc;
+    background-color: transparent;
+    border-color: #106cfc;
+    text-align: center;
+}
+
+.service-btn:hover {
+    background-color: #e1edff;
+    color: #000000;
+    border-color: #106cfc;
+}
+
+.service-btn:active,
+.service-btn:focus {
+    background-color: #0a56b6;
+    color: white;
+    border-color: #106cfc;
+    outline: none;
+}
+
+.selected-service {
+    background-color: #e1edff;
+    color: #f8f9fa;
+    border: 2px solid #106cfc;
+}
+
+.footer {
+    background-color: #1e2a38;
+    padding: 20px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-style: italic;
+    margin: 0;
+}
+
+.custom-progress-bar {
+    background-color: #ffb123;
+}
+
+.next-button {
+    background-color: #202c3c;
+    width: 150px;
+}
+
+.next-button:hover {
+    background-color: #e1edff;
+    color: #106cfc;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .card-body p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Pop-up box styling */
+.popup-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #202c3c; /* Teal background */
+    border: 1px solid #004d40; /* Darker teal border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    border-radius: 10px;
+    color: #ffffff;
+}
+.popup-box h3 {
+    margin-top: 0;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.popup-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;   
+}
+.popup-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* Override color of the cancel button */
+.custom-btn {
+    background-color: #106cfc !important;
+    color: #ffffff !important;
+    border-color: #202c3c !important;
+}
+
+.custom-btn:hover {
+    background-color: #1a2330 !important; /* Darker shade on hover */
+}
