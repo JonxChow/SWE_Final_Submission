@@ -18,7 +18,6 @@ Fixaroo is a web application designed to simplify the process of finding reliabl
 - [Testing](#testing)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - **User Registration and Login:** Secure registration and authentication with form validation.
