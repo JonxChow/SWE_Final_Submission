@@ -71,6 +71,3 @@ Fixaroo includes both black-box and white-box testing:
 4. Lau Ler Hong 
 5. Song Tingfeng [@tingfeng03](https://github.com/tingfeng03)
 6. Tan Uei Horng [@tanueihorng](https://github.com/tanueihorng)
-
-# SWE_Final_Submission
-# SWE_Final_Submission
