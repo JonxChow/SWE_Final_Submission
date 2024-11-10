@@ -1,7 +1,7 @@
 # Fixaroo 
 SC2006 SCS6 Group 33
 <p align="center">
-  <img src="Frontend/images/cover.jpg" alt="Fixaroo Logo" width="500"/>
+  <img src="view/images/cover.jpg" alt="Fixaroo Logo" width="500"/>
 </p>
 
 
